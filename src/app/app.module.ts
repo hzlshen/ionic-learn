@@ -11,7 +11,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {MinePage} from "../pages/mine/mine";
 import {TestPage} from "../pages/test/test";
 import {DemoPage} from "../pages/demo/demo";
-import { TestServiceProvider } from '../providers/test-service/test-service';
+import {HttpModule} from "@angular/http";
+import {HttpService} from "../providers/HttpService";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TestServiceProvider } from '../providers/test-service/test-service';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -39,7 +41,7 @@ import { TestServiceProvider } from '../providers/test-service/test-service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TestServiceProvider
+    HttpService
   ]
 })
 export class AppModule {}
